@@ -48,7 +48,7 @@ form {
   padding: 10px;
 }
 
-textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+textarea::-webkit-input-placeholder {
   color: #a7bcb9;
 }
 
