@@ -36,6 +36,46 @@ body {
   display: none;
 }
 
+.wrapper {
+  width: 100%;
+  padding: 15px;
+}
+
+.message {
+  flex: 1;
+  color: #dcdcdc;
+  font-size: 20px;
+  max-width: 100%;
+  overflow-x: scroll;
+  white-space: pre-wrap; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.message::-webkit-scrollbar {
+  display: none;
+}
+
+
+.chat {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+}
+
 form {
   background-color: #706a92;
   display: flex;
