@@ -1,3 +1,6 @@
+import bot from './assets/bot.png';
+import user from './assets/user.png';
+
 const form = document.querySelector('form');
 const chat = document.querySelector('#chat-container');
 
@@ -19,7 +22,7 @@ function typeText(element, text) {
   let i = 0;
 
   let interval = setInterval(() => {
-    if (index < text.length) {
+    if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
     } else {
@@ -66,4 +69,10 @@ const handleSubmit = async (e) => {
   const message = document.getElementById(id);
 
   loader(message);
-}
+};
+
+form.addEventListener("submit", handleSubmit);
+form.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    handleSubmit(e);
+  }})
