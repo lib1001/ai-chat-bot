@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
 
   const data = new FormData(form);
 
-  chat.innerHTML += chatArea(false, data.get("prompt"));
+  chat.innerHTML += chatArea(false, data.get('prompt'));
 
   form.reset();
 
@@ -70,18 +70,18 @@ const handleSubmit = async (e) => {
 
   loader(messageDiv);
 
-  const response = await fetch('https://ai-chat-jhqh.onrender.com', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
+const response = await fetch('https://ai-chat-jhqh.onrender.com', {
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
       prompt: data.get('prompt')
-    })
+  })
 })
 
 clearInterval(loadInteral);
-messageDiv.innerHTML = "";
+messageDiv.innerHTML = " ";
 
 if(response.ok) {
   const data = await response.json();
