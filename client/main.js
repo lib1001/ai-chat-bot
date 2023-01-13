@@ -1,5 +1,5 @@
-import bot from './assets/bot.png';
-import user from './assets/user.png';
+import bot from "./assets/bot.png";
+import user from "./assets/user.png";
 
 const form = document.querySelector("form");
 const chat = document.querySelector("#chat-container");
@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
 
   const data = new FormData(form);
 
-  chat.innerHTML += chatArea(false, data.get('prompt'));
+  chat.innerHTML += chatArea(false, data.get("prompt"));
 
   form.reset();
 
@@ -70,32 +70,32 @@ const handleSubmit = async (e) => {
 
   loader(messageDiv);
 
-const response = await fetch('https://ai-chat-jhqh.onrender.com', {
-  method: 'POST',
-  headers: {
-      'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-      prompt: data.get('prompt')
-  })
-})
+  const response = await fetch("https://ai-chat-jhqh.onrender.comg", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      prompt: data.get("prompt"),
+    }),
+  });
 
-clearInterval(loadInteral);
-messageDiv.innerHTML = " ";
+  clearInterval(loadInteral);
+  messageDiv.innerHTML = " ";
 
-if(response.ok) {
-  const data = await response.json();
-  const parsedData = data.bot.trim();
+  if (response.ok) {
+    const data = await response.json();
+    const parsedData = data.bot.trim();
 
-  typeText(messageDiv, parsedData);
-} else {
-  const err = await response.text();
+    typeText(messageDiv, parsedData);
+  } else {
+    const err = await response.text();
 
-  messageDiv.innerHTML = "Uh oh! Something's wrong!";
+    messageDiv.innerHTML = "Uh oh! Something's wrong!";
 
-  alert(err);
-}
-}
+    alert(err);
+  }
+};
 
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {
